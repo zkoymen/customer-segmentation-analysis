@@ -107,3 +107,27 @@ print("K-Means model trained and segments predicted.")
 print("\nDataset with Customer Segments:")
 print(df.head(10))
 
+
+# -----------------VISUALITSATION -------------------------
+
+
+plt.figure(figsize=(12, 8))
+sns.scatterplot(x=X[y_kmeans == 0, 0], y=X[y_kmeans == 0, 1], s=100, label='Standard', palette='viridis')
+sns.scatterplot(x=X[y_kmeans == 1, 0], y=X[y_kmeans == 1, 1], s=100, label='Careless')
+sns.scatterplot(x=X[y_kmeans == 2, 0], y=X[y_kmeans == 2, 1], s=100, label='Target')
+sns.scatterplot(x=X[y_kmeans == 3, 0], y=X[y_kmeans == 3, 1], s=100, label='Sensible')
+sns.scatterplot(x=X[y_kmeans == 4, 0], y=X[y_kmeans == 4, 1], s=100, label='Careful')
+
+# Plotting the centroids of the clusters
+plt.scatter(kmeans.cluster_centers_[:, 0], kmeans.cluster_centers_[:, 1], s=200, c='red', label='Centroids', marker='*')
+
+plt.title('Customer Segments', fontsize=16)
+plt.xlabel('Annual Income (k$)', fontsize=12)
+plt.ylabel('Spending Score (1-100)', fontsize=12)
+plt.legend()
+plt.show()
+
+
+
+
+
