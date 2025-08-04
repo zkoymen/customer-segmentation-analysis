@@ -38,15 +38,15 @@ The analysis identified 5 distinct customer segments:
 
 1.  **Clone the repository:**
     ```bash
-    git clone <Customer-Segmentation-Analysis>
+    git clone <customer-segmentation-analysis>
     ```
 2.  **Install the required libraries:**
     ```bash
     pip install pandas numpy matplotlib seaborn scikit-learn
     ```
 3.  **Download the dataset:**
-    *   Get `Mall_Customers.csv` from the Kaggle link above.
-    *   Place it in the same directory as the Python script.
+    *   import kagglehub in the code (easisest way)
+    *   and copy paste the commands for it from the website url mentioned above.
 4.  **Run the script:**
     ```bash
     python customer_segmentation.py
