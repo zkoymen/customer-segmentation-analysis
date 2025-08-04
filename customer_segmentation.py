@@ -92,3 +92,18 @@ plt.show()
 
 # It appears that optimal number  of cluster is about 5 or so. We will select 5
 
+
+# ----------------- TRAINING SESSION -------------------
+
+# Training the K-Means model with the optimal number of clusters
+
+kmeans = KMeans(n_clusters=5, init='k-means++', random_state=42, n_init=10)
+y_kmeans = kmeans.fit_predict(X)
+
+# Adding the cluster information to the original DataFrame
+df['Customer Segment'] = y_kmeans
+
+print("K-Means model trained and segments predicted.")
+print("\nDataset with Customer Segments:")
+print(df.head(10))
+
