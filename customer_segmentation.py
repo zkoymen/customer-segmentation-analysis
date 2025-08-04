@@ -65,3 +65,30 @@ plt.xlabel('Annual Income (k$)')
 plt.ylabel('Spending Score (1-100)')
 plt.legend()
 plt.show()
+
+
+# Selecting features for clustering
+# We will use 'Annual Income' and 'Spending Score' for segmentation
+X = df[['Annual Income (k$)', 'Spending Score (1-100)']].values
+print("Features selected: Annual Income and Spending Score.")
+
+
+
+# WCSS = Within-Cluster Sum of Squares
+wcss = []
+for i in range(1, 11):
+    kmeans = KMeans(n_clusters=i, init='k-means++', random_state=42, n_init=10)
+    kmeans.fit(X)
+    wcss.append(kmeans.inertia_)
+
+# Plotting the Elbow Method graph
+plt.figure(figsize=(10, 6))
+plt.plot(range(1, 11), wcss, marker='o', linestyle='--')
+plt.title('The Elbow Method')
+plt.xlabel('Number of Clusters (k)')
+plt.ylabel('WCSS')
+plt.xticks(range(1, 11))
+plt.show()
+
+# It appears that optimal number  of cluster is about 5 or so. We will select 5
+
